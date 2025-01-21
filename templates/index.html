@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Quiz Game</title>
+</head>
+<body>
+    <h1>Welcome to the Vocabulary Quiz Game!</h1>
+    <form method="post" action="/start_quiz">
+        <button type="submit">Start Quiz</button>
+    </form>
+    {% if high_score is not none %}
+        <p>High Score: {{ high_score }}</p>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
