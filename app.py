@@ -77,20 +77,5 @@ def submit_answer():
 
     return redirect(url_for('start_quiz'))
 
-# ฟังก์ชันสำหรับการทดสอบคำศัพท์
-@app.route('/quiz', methods=['GET', 'POST'])
-def quiz():
-    vocab = load_vocab()
-    if request.method == 'POST':
-        word = request.form['word']
-        answer = request.form['answer']
-        if answer.lower() == vocab[word].lower():
-            return redirect(url_for('start_quiz'))
-        else:
-            return render_template('quiz.html', result=f"Wrong! The correct answer is '{vocab[word]}'.", word=word)
-    else:
-        word = random.choice(list(vocab.keys()))
-        return render_template('quiz.html', word=word)
-
 if __name__ == '__main__':
     app.run(debug=True)
