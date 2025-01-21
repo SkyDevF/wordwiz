@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Quiz</title>
+</head>
+<body>
+    <h1>Vocabulary Quiz</h1>
+    <p>Current Score: {{ score }}</p>
+    <p>Total Questions: {{ total_questions }}</p>
+    {% if result %}
+        <p>{{ result }}</p>
+    {% endif %}
+    <form method="post" action="/submit_answer">
+        <p>What is the meaning of '{{ word }}'?</p>
+        <input type="text" name="answer" required>
+        <input type="hidden" name="word" value="{{ word }}">
+        <input type="hidden" name="correct_answer" value="{{ meaning }}">
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
